@@ -8,6 +8,12 @@ const App = () => {
     const [isLoading, setIsLoading] = useState(true);
     const [tours, setTours] = useState([]);
 
+    // id is from each data
+    const removeTour = (id) => {
+        const newTours = tours.filter((tour) => tour.id !== id);
+        setTours(newTours);
+    };
+
     // function to call the api
     const fetchTours = async () => {
         setIsLoading(true);
@@ -36,7 +42,7 @@ const App = () => {
     }
     return (
         <div>
-            <Tours tours={tours} />
+            <Tours tours={tours} removeTour={removeTour} />
         </div>
     );
 };
