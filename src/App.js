@@ -31,8 +31,7 @@ const App = () => {
         fetchTours();
     }, []);
 
-    // while fetch display spiner
-
+    // eslint-disable-next-line no-unreachable
     if (isLoading) {
         return (
             <main>
@@ -44,18 +43,19 @@ const App = () => {
     if (tours.length === 0) {
         return (
             <main>
-                <div>
-                    <h2>No tours left</h2>
-                    <button onClick={() => fetchTours()}>refresh</button>
+                <div className='title'>
+                    <h2>no tours left</h2>
+                    <button className='btn' onClick={() => fetchTours()}>
+                        refresh
+                    </button>
                 </div>
             </main>
         );
     }
-
     return (
-        <div>
+        <main>
             <Tours tours={tours} removeTour={removeTour} />
-        </div>
+        </main>
     );
 };
 
